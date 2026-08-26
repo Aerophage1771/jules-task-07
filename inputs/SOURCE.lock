@@ -1,0 +1,11 @@
+source_repo=Aerophage1771/germaine-internal
+source_ref=d6f265411195ada0e432a9675155579218b7bd95
+canonical_index=content/questions/index.json
+batch=003
+corpus_ids=FLAW-0041–FLAW-0060
+question_count=20
+
+Materialize this exact source revision under inputs/germaine-internal before the Jules run. Preferred authenticated route:
+  gh repo clone Aerophage1771/germaine-internal inputs/germaine-internal
+  git -C inputs/germaine-internal checkout d6f265411195ada0e432a9675155579218b7bd95
+Do NOT copy in germaine-complete-flaw-corpus-reviewed-v1.json or prior taxonomy labels.
