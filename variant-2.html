@@ -1,0 +1,1551 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LR Question Type Map — Sunlit Botanical Editorial — 5:4 Landscape</title>
+<style>
+  :root{
+    /* Theme 03 — Sunlit Botanical Editorial */
+    --denim:#344E73;
+    --slate:#425C81;
+    --haze:#556E91;
+    --gold:#C9A149;
+    --ochre:#9F7633;
+    --petal:#7F501D;
+    --soft-white:#F8F9F9;
+    --canvas:#F7F8FA;
+    --deep-ink:#0A1625;
+    --body-ink:#26313F;
+    --line:#DDE3EA;
+    --paper:#FFFFFF;
+
+    --page-w:10in;
+    --page-h:8in;
+    --safe-x:0.68in;
+    --safe-y:0.56in;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+
+  body{
+    background:#E8EDF2;
+    color:var(--body-ink);
+    font-family:"Inter", Helvetica, Arial, sans-serif;
+  }
+
+  .export-toolbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:10px 18px;
+    background:var(--deep-ink);
+    color:var(--soft-white);
+    font-size:13px;
+  }
+
+  .export-toolbar strong{
+    letter-spacing:.04em;
+  }
+
+  .export-toolbar button{
+    border:0;
+    border-bottom:3px solid var(--gold);
+    border-radius:999px;
+    padding:9px 15px;
+    background:var(--denim);
+    color:white;
+    font:700 12px/1 "Inter", Helvetica, Arial, sans-serif;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+
+  .document{
+    width:max-content;
+    margin:28px auto 56px;
+  }
+
+  .pdf-page{
+    position:relative;
+    width:var(--page-w);
+    height:var(--page-h);
+    margin:0 auto 24px;
+    overflow:hidden;
+    background:var(--paper);
+    box-shadow:0 14px 36px rgba(10,22,37,.15);
+    break-after:page;
+    page-break-after:always;
+  }
+
+  /* Optional Theme 03 atmospheric layer. */
+  .pdf-page.has-bloom::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 92%,
+        rgba(127,80,29,.16) 0%,
+        rgba(159,118,51,.13) 14%,
+        rgba(201,161,73,.11) 28%,
+        rgba(85,110,145,.07) 43%,
+        transparent 62%);
+  }
+
+  .pdf-page-content{
+    position:absolute;
+    inset:var(--safe-y) var(--safe-x) 0.68in;
+    overflow:hidden;
+  }
+
+  .pdf-page-footer{
+    position:absolute;
+    left:var(--safe-x);
+    right:var(--safe-x);
+    bottom:0.24in;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding-top:0.09in;
+    border-top:1px solid var(--line);
+    color:var(--haze);
+    font-size:9pt;
+  }
+
+  .eyebrow{
+    margin:0 0 10px;
+    color:var(--ochre);
+    font:700 9pt/1.2 "Outfit","Inter",Helvetica,Arial,sans-serif;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+
+  h1,h2,h3{
+    color:var(--deep-ink);
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+  }
+
+  h1{
+    max-width:7.8in;
+    margin:0 0 12px;
+    font-size:31pt;
+    line-height:1.02;
+    letter-spacing:-.02em;
+  }
+
+  h2{
+    margin:0 0 10px;
+    font-size:24pt;
+    color:var(--denim);
+  }
+
+  h3 {
+    margin: 0 0 6px;
+    font-size: 16pt;
+    color: var(--deep-ink);
+  }
+
+  h1 em,h2 em,h3 em{
+    color:var(--gold);
+    font-style:italic;
+  }
+
+  .lede{
+    max-width:7.6in;
+    margin:0;
+    color:var(--body-ink);
+    font-size:13.5pt;
+    line-height:1.55;
+  }
+
+  .gold-rule{
+    width:2.4in;
+    height:3px;
+    margin:0.22in 0 0.28in;
+    background:linear-gradient(90deg,var(--gold),transparent);
+  }
+
+  .label{
+    display:block;
+    margin-bottom:0.08in;
+    color:var(--denim);
+    font:700 8pt/1.2 "Outfit","Inter",Helvetica,Arial,sans-serif;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  @page{
+    size:10in 8in;
+    margin:0;
+  }
+
+  @media print{
+    html,body{
+      width:10in;
+      margin:0 !important;
+      padding:0 !important;
+      background:#fff !important;
+    }
+
+    .export-toolbar{
+      display:none !important;
+    }
+
+    .document{
+      width:auto;
+      margin:0;
+    }
+
+    .pdf-page{
+      width:10in;
+      height:8in;
+      margin:0;
+      box-shadow:none;
+      break-after:page;
+      page-break-after:always;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
+    .pdf-page:last-child{
+      break-after:auto;
+      page-break-after:auto;
+    }
+  }
+
+  /* Variant 2 Specifics - Spacious Study Guide */
+  .v2-family-header {
+    text-align: center;
+    padding-top: 1in;
+  }
+  .v2-qt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2in;
+    height: 100%;
+  }
+  .v2-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.1in;
+  }
+  .v2-content-bands {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15in;
+  }
+  .v2-band {
+    display: flex;
+    gap: 0.3in;
+    align-items: flex-start;
+  }
+  .v2-band-title {
+    width: 1.5in;
+    flex-shrink: 0;
+    text-align: right;
+    font: 700 9pt/1.2 "Outfit", sans-serif;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--slate);
+    padding-top: 0.05in;
+  }
+  .v2-band-content {
+    flex-grow: 1;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+  .v2-template-cards {
+    display: flex;
+    gap: 0.15in;
+    margin-top: 0.1in;
+  }
+  .v2-card {
+    flex: 1;
+    background: white;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 0.15in;
+    box-shadow: 0 4px 12px rgba(201,161,73,0.1);
+    border-top: 4px solid var(--denim);
+  }
+  .v2-card-title {
+    font-family: "Fraunces", serif;
+    font-size: 12pt;
+    color: var(--deep-ink);
+    margin: 0 0 0.05in;
+  }
+  .v2-card-desc {
+    font-size: 9pt;
+    color: var(--body-ink);
+    margin: 0;
+  }
+  </style>
+  </head>
+  <body>
+  <div class="export-toolbar">
+    <strong>GT-Decade-Theme · Theme 03 · Sunlit Botanical Editorial</strong>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <main class="document">
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Structure</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Main Conclusion</h2>
+              <span class="eyebrow">Structure</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Identify the primary claim the author is trying to prove.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following most accurately expresses the main conclusion of the argument?<br>The main point of the argument is that
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Find the conclusion and evidence.<br>2. Check for intermediate conclusions.<br>3. Use the Why Test to verify the main conclusion.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Support Chain</h4>
+                          <p class="v2-card-desc">Evidence -> Intermediate Conclusion -> Main Conclusion</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">The Why Test</h4>
+                          <p class="v2-card-desc">Does statement A support statement B, or vice versa?</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Beware the Intermediate Conclusion Trap.</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>1</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Argument Part</h2>
+              <span class="eyebrow">Structure</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Describe the function of a specific statement within the argument.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The statement that [X] plays which one of the following roles in the argument?<br>Which one of the following most accurately describes the role played by the claim that [X]?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the main conclusion.<br>2. Ask: 'Does the statement support something?'<br>3. Ask: 'Is the statement supported by something?'
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Content vs. Function</h4>
+                          <p class="v2-card-desc">Focus on what the statement DOES, not what it SAYS.</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Premise</h4>
+                          <p class="v2-card-desc">Supports conclusion, not supported.</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Intermediate Conclusion</h4>
+                          <p class="v2-card-desc">Supports conclusion, is supported.</p>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>2</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Patterns & Flaws</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Method of Reasoning</h2>
+              <span class="eyebrow">Patterns & Flaws</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Describe the technique the author uses to argue their point.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The argument proceeds by<br>Which one of the following most accurately describes the method of reasoning used in the argument?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the conclusion and premises.<br>2. Abstract the relationship between them.<br>3. Match the abstraction to the answer choices.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Analogy Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Elimination Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Counterexample Template</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>3</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Parallel Reasoning</h2>
+              <span class="eyebrow">Patterns & Flaws</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find an argument with the same logical structure as the stimulus.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following arguments is most similar in its pattern of reasoning to the argument above?<br>The pattern of reasoning in which one of the following is most closely parallel to that in the argument above?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Abstract the stimulus logic (e.g., A -> B).<br>2. Evaluate the conclusion's force (e.g., must, probably).<br>3. Match structure and force in the answers.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Conditional Logic Match</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Quantifier Match (All, Most, Some)</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Contrapositive Match</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>4</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Flaw</h2>
+              <span class="eyebrow">Patterns & Flaws</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Identify the logical error in the author's reasoning.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The reasoning in the argument is flawed in that the argument<br>Which one of the following most accurately describes a flaw in the argument's reasoning?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Find the conclusion and evidence.<br>2. Play Devil's Advocate: 'How could the evidence be true while the conclusion is still wrong?'<br>3. Describe the gap.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Correlation vs. Causation</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Necessary vs. Sufficient</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Ad Hominem</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Part vs. Whole</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>5</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Parallel Flaw</h2>
+              <span class="eyebrow">Patterns & Flaws</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find an argument that commits the exact same logical error.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following exhibits a flawed pattern of reasoning most similar to that in the argument above?<br>The flawed reasoning in the argument above is most closely paralleled by that in which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the specific flaw in the stimulus.<br>2. Look for the same flaw category in the answers.<br>3. Verify the underlying structure matches.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Matched Conditional Flaw</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Matched Causal Flaw</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Matched Equivocation</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>6</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Argument Impact & Assumptions</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Evaluate</h2>
+              <span class="eyebrow">Argument Impact & Assumptions</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Identify the question whose answer would help determine the argument's validity.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following would it be most helpful to know in order to evaluate the argument?<br>The answer to which one of the following questions is most relevant to evaluating the argument?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the core argument.<br>2. Anticipate the missing information or gap.<br>3. Apply the Variance Test.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">The Variance Test</h4>
+                          <p class="v2-card-desc">Apply extreme yes/no, high/low, present/absent answers to the choice.</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">If differing answers make the argument respectively succeed and fail, it's the correct choice.</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>7</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Strengthen</h2>
+              <span class="eyebrow">Argument Impact & Assumptions</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find a new fact that makes the conclusion more likely to be true.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following, if true, most strengthens the argument?<br>Which one of the following, if true, most strongly supports the conclusion above?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the core argument and its gap.<br>2. Prephrase a bridge for the gap.<br>3. Find the answer that provides that bridge or eliminates an alternate explanation.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Bolster the Evidence</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Eliminate Alternate Causes</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Show Cause without Effect / Effect without Cause (for causal arguments)</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>8</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Weaken</h2>
+              <span class="eyebrow">Argument Impact & Assumptions</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find a new fact that makes the conclusion less likely to be true.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following, if true, most weakens the argument?<br>Which one of the following, if true, most seriously undermines the reasoning above?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the core argument and its gap.<br>2. Prephrase an attack on the gap.<br>3. Find the answer that introduces an alternate explanation or attacks the assumption.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Introduce Alternate Cause</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Show Cause without Effect</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Show Effect without Cause</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Attack the Data/Sample</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>9</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Sufficient Assumption</h2>
+              <span class="eyebrow">Argument Impact & Assumptions</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the missing premise that, if added, guarantees the conclusion is 100% true.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The conclusion follows logically if which one of the following is assumed?<br>Which one of the following, if assumed, enables the argument's conclusion to be properly drawn?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Map the formal logic of the premises and conclusion.<br>2. Look for New Terms or Dangling Terms.<br>3. Insert answer and rerun the chain to guarantee the conclusion.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Entry Gap</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Middle Gap</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">End Gap</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Connect the Dangling Terms</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>10</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Necessary Assumption</h2>
+              <span class="eyebrow">Argument Impact & Assumptions</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the unstated premise that MUST be true for the argument to even have a chance of working.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following is an assumption on which the argument depends?<br>The argument assumes which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the core argument.<br>2. Prephrase a necessary condition.<br>3. Apply the Negation Test.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">The Negation Test</h4>
+                          <p class="v2-card-desc">If the logical negation of the choice destroys the argument, it's correct.</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Shielding Assumption</h4>
+                          <p class="v2-card-desc">Blocks a potential problem.</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Connecting Assumption</h4>
+                          <p class="v2-card-desc">Bridges a gap.</p>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>11</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Principles</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Principle Strengthen</h2>
+              <span class="eyebrow">Principles</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find a general rule that helps justify the specific reasoning in the stimulus.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following principles, if valid, most helps to justify the reasoning above?<br>The reasoning above most closely conforms to which one of the following principles?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Summarize the specific situation in the stimulus.<br>2. Abstract it into an 'If [condition], then [judgment]' rule.<br>3. Match the rule to the answers.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Broad Rule Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">If Premise -> Then Conclusion</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>12</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Principle Generalize</h2>
+              <span class="eyebrow">Principles</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Extract a general rule or principle that is illustrated by the specific situation.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following generalizations is most clearly illustrated by the situation described above?<br>The situation described above best illustrates which one of the following propositions?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Understand the core dynamics of the scenario.<br>2. Abstract the scenario without losing key elements.<br>3. Find the choice that captures this abstraction.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Scenario Abstraction Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Action/Consequence Template</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>13</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Principle Apply</h2>
+              <span class="eyebrow">Principles</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Take a general rule from the stimulus and apply it to a new specific situation in the answers.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following judgments conforms most closely to the principle cited above?<br>The principle above, if valid, most strongly supports which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Diagram the principle if conditional.<br>2. Convert rule to checklist.<br>3. Evaluate answers: one missed necessary condition can eliminate an answer.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Rule as Checklist Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Sufficient Condition Trigger</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Necessary Condition Failure</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>14</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Inference</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Most Strongly Supported</h2>
+              <span class="eyebrow">Inference</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the statement that is highly likely to be true based on the provided facts.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following is most strongly supported by the information above?<br>The statements above, if true, most strongly support which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Read the facts (no argument to analyze).<br>2. Look for overlapping terms or combinations of facts.<br>3. Pick the safest, most provable answer.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Fact Combination</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Soft Language Preference (e.g., 'some', 'can')</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>15</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Fill in the Blank</h2>
+              <span class="eyebrow">Inference</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Complete the logical thought at the end of the stimulus.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following most logically completes the argument?<br>The information above provides the most support for the conclusion that...
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the direction of the argument just before the blank.<br>2. Prephrase the logical conclusion.<br>3. Match the prephrase.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Conclusion Synthesis</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Contrast Continuation</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>16</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Must Be True</h2>
+              <span class="eyebrow">Inference</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the statement that is 100% guaranteed by the facts provided.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  If the statements above are true, which one of the following must also be true?<br>Which one of the following can be properly inferred from the passage?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Diagram formal logic if present.<br>2. Combine facts rigorously.<br>3. Ask: 'Could this possibly be false?' If yes, eliminate.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Formal Logic Chain</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Contrapositive Check</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Fact Combination Template</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>17</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Must Be False</h2>
+              <span class="eyebrow">Inference</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the statement that completely contradicts the provided facts.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  If the statements above are true, which one of the following must be false?<br>The information above, if true, most strongly supports the rejection of which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Understand the exact parameters of the facts.<br>2. Apply the Coexistence Test.<br>3. If the answer can coexist with the facts, eliminate it.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">The Coexistence Test</h4>
+                          <p class="v2-card-desc">Can this be true at the same time as the stimulus?</p>
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Direct Contradiction Template</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>18</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Paradox / Explain</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Paradox / Explain</h2>
+              <span class="eyebrow">Paradox / Explain</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Find the fact that resolves the apparent contradiction between two statements.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  Which one of the following, if true, most helps to resolve the apparent discrepancy?<br>Which one of the following, if true, most helps to explain the paradoxical result?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify the two conflicting facts.<br>2. Preserve both facts as true.<br>3. Find the hidden distinction / bridge that allows both to exist.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">The Missing Context Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Alternate Cause Explanation</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Scope Shift Resolution</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>19</span>
+          </footer>
+        </section>
+
+      <section class="pdf-page has-bloom">
+        <div class="pdf-page-content v2-family-header">
+          <p class="eyebrow">Level 4A — Template Library</p>
+          <h1 style="margin: 0 auto;">Dialogue</h1>
+          <div class="gold-rule" style="margin: 0.3in auto;"></div>
+          <p class="lede" style="margin: 0 auto; text-align: center;">Spacious Study Guide Format</p>
+        </div>
+      </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Disagree</h2>
+              <span class="eyebrow">Dialogue</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Identify the precise point of contention between two speakers.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The dialogue provides the most support for the claim that [A] and [B] disagree over whether<br>The point at issue between [A] and [B] is whether
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Identify speaker 1's conclusion.<br>2. Identify what speaker 2 specifically pushes back against.<br>3. Apply the Speaker-by-Speaker Commitment Test.
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Speaker-by-Speaker Commitment Test</h4>
+                          <p class="v2-card-desc">Speaker 1 must say YES, Speaker 2 must say NO (or vice versa).</p>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>20</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content v2-qt-container">
+            <div class="v2-header">
+              <h2 style="margin:0; font-size:28pt; color:var(--deep-ink);">Agree</h2>
+              <span class="eyebrow">Dialogue</span>
+            </div>
+
+            <div class="v2-content-bands">
+              <div class="v2-band">
+                <div class="v2-band-title">The Task</div>
+                <div class="v2-band-content">Identify a statement that both speakers would endorse.</div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">Stem Recognition</div>
+                <div class="v2-band-content" style="color:var(--slate); font-style:italic;">
+                  The dialogue provides the most support for the claim that [A] and [B] agree that<br>The statements above provide the most support for the claim that both speakers would agree with which one of the following?
+                </div>
+              </div>
+
+              <div class="v2-band">
+                <div class="v2-band-title">The Method</div>
+                <div class="v2-band-content">
+                  1. Read both perspectives carefully.<br>2. Find the shared premise or unstated common ground.<br>3. Apply the Speaker-by-Speaker Commitment Test (Both must say YES).
+                </div>
+              </div>
+
+              <div class="v2-band" style="margin-top: 0.2in;">
+                <div class="v2-band-title" style="color:var(--ochre);">Template Library</div>
+                <div class="v2-band-content">
+                  <div class="v2-template-cards">
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Shared Assumption Template</h4>
+
+                        </div>
+
+                        <div class="v2-card">
+                          <h4 class="v2-card-title">Common Ground Test</h4>
+
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>21</span>
+          </footer>
+        </section>
+      </main></body></html>

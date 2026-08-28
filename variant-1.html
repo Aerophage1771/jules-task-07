@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LR Question Type Map — Sunlit Botanical Editorial — 5:4 Landscape</title>
+<style>
+  :root{
+    /* Theme 03 — Sunlit Botanical Editorial */
+    --denim:#344E73;
+    --slate:#425C81;
+    --haze:#556E91;
+    --gold:#C9A149;
+    --ochre:#9F7633;
+    --petal:#7F501D;
+    --soft-white:#F8F9F9;
+    --canvas:#F7F8FA;
+    --deep-ink:#0A1625;
+    --body-ink:#26313F;
+    --line:#DDE3EA;
+    --paper:#FFFFFF;
+
+    --page-w:10in;
+    --page-h:8in;
+    --safe-x:0.68in;
+    --safe-y:0.56in;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+
+  body{
+    background:#E8EDF2;
+    color:var(--body-ink);
+    font-family:"Inter", Helvetica, Arial, sans-serif;
+  }
+
+  .export-toolbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:10px 18px;
+    background:var(--deep-ink);
+    color:var(--soft-white);
+    font-size:13px;
+  }
+
+  .export-toolbar strong{
+    letter-spacing:.04em;
+  }
+
+  .export-toolbar button{
+    border:0;
+    border-bottom:3px solid var(--gold);
+    border-radius:999px;
+    padding:9px 15px;
+    background:var(--denim);
+    color:white;
+    font:700 12px/1 "Inter", Helvetica, Arial, sans-serif;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+
+  .document{
+    width:max-content;
+    margin:28px auto 56px;
+  }
+
+  .pdf-page{
+    position:relative;
+    width:var(--page-w);
+    height:var(--page-h);
+    margin:0 auto 24px;
+    overflow:hidden;
+    background:var(--paper);
+    box-shadow:0 14px 36px rgba(10,22,37,.15);
+    break-after:page;
+    page-break-after:always;
+  }
+
+  /* Optional Theme 03 atmospheric layer. */
+  .pdf-page.has-bloom::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 92%,
+        rgba(127,80,29,.16) 0%,
+        rgba(159,118,51,.13) 14%,
+        rgba(201,161,73,.11) 28%,
+        rgba(85,110,145,.07) 43%,
+        transparent 62%);
+  }
+
+  .pdf-page-content{
+    position:absolute;
+    inset:var(--safe-y) var(--safe-x) 0.68in;
+    overflow:hidden;
+  }
+
+  .pdf-page-footer{
+    position:absolute;
+    left:var(--safe-x);
+    right:var(--safe-x);
+    bottom:0.24in;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding-top:0.09in;
+    border-top:1px solid var(--line);
+    color:var(--haze);
+    font-size:9pt;
+  }
+
+  .eyebrow{
+    margin:0 0 10px;
+    color:var(--ochre);
+    font:700 9pt/1.2 "Outfit","Inter",Helvetica,Arial,sans-serif;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+
+  h1,h2,h3{
+    color:var(--deep-ink);
+    font-family:"Fraunces", Georgia, "Times New Roman", serif;
+  }
+
+  h1{
+    max-width:7.8in;
+    margin:0 0 12px;
+    font-size:31pt;
+    line-height:1.02;
+    letter-spacing:-.02em;
+  }
+
+  h2{
+    margin:0 0 10px;
+    font-size:24pt;
+    color:var(--denim);
+  }
+
+  h3 {
+    margin: 0 0 6px;
+    font-size: 16pt;
+    color: var(--deep-ink);
+  }
+
+  h1 em,h2 em,h3 em{
+    color:var(--gold);
+    font-style:italic;
+  }
+
+  .lede{
+    max-width:7.6in;
+    margin:0;
+    color:var(--body-ink);
+    font-size:13.5pt;
+    line-height:1.55;
+  }
+
+  .gold-rule{
+    width:2.4in;
+    height:3px;
+    margin:0.22in 0 0.28in;
+    background:linear-gradient(90deg,var(--gold),transparent);
+  }
+
+  .label{
+    display:block;
+    margin-bottom:0.08in;
+    color:var(--denim);
+    font:700 8pt/1.2 "Outfit","Inter",Helvetica,Arial,sans-serif;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+
+  @page{
+    size:10in 8in;
+    margin:0;
+  }
+
+  @media print{
+    html,body{
+      width:10in;
+      margin:0 !important;
+      padding:0 !important;
+      background:#fff !important;
+    }
+
+    .export-toolbar{
+      display:none !important;
+    }
+
+    .document{
+      width:auto;
+      margin:0;
+    }
+
+    .pdf-page{
+      width:10in;
+      height:8in;
+      margin:0;
+      box-shadow:none;
+      break-after:page;
+      page-break-after:always;
+      -webkit-print-color-adjust:exact;
+      print-color-adjust:exact;
+    }
+
+    .pdf-page:last-child{
+      break-after:auto;
+      page-break-after:auto;
+    }
+  }
+
+  /* Variant 1 Specifics - Dense Reference Atlas */
+  .v1-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25in;
+    height: 100%;
+    align-content: start;
+  }
+  .v1-qt {
+    border-top: 2px solid var(--denim);
+    padding-top: 0.1in;
+    margin-bottom: 0.2in;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .v1-type-title {
+    font-size: 18pt;
+    margin: 0 0 0.05in;
+    color: var(--deep-ink);
+  }
+  .v1-def {
+    font-size: 10pt;
+    line-height: 1.4;
+    margin-bottom: 0.1in;
+    font-style: italic;
+    color: var(--slate);
+  }
+  .v1-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.15in;
+  }
+  .v1-box {
+    background: var(--soft-white);
+    padding: 0.1in;
+    border-left: 2px solid var(--gold);
+  }
+  .v1-box.template-lib {
+    background: var(--canvas);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ochre);
+  }
+  .v1-box ul { margin: 0; padding-left: 0.15in; font-size: 8pt; line-height: 1.3;}
+  .v1-box li { margin-bottom: 0.05in; }
+  .v1-label {
+    font: 700 7pt/1 "Outfit", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ochre);
+    margin-bottom: 0.05in;
+    display: block;
+  }
+  </style>
+  </head>
+  <body>
+  <div class="export-toolbar">
+    <strong>GT-Decade-Theme · Theme 03 · Sunlit Botanical Editorial</strong>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </div>
+  <main class="document">
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Structure</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Main Conclusion</h3>
+            <p class="v1-def">Identify the primary claim the author is trying to prove.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Find the conclusion and evidence.</li><li>2. Check for intermediate conclusions.</li><li>3. Use the Why Test to verify the main conclusion.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following most accurately expresses the main conclusion of the argument?</li><li>The main point of the argument is that</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Support Chain</strong>: Evidence -> Intermediate Conclusion -> Main Conclusion</li><li><strong>The Why Test</strong>: Does statement A support statement B, or vice versa?</li><li><strong>Beware the Intermediate Conclusion Trap.</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Argument Part</h3>
+            <p class="v1-def">Describe the function of a specific statement within the argument.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the main conclusion.</li><li>2. Ask: 'Does the statement support something?'</li><li>3. Ask: 'Is the statement supported by something?'</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The statement that [X] plays which one of the following roles in the argument?</li><li>Which one of the following most accurately describes the role played by the claim that [X]?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Content vs. Function</strong>: Focus on what the statement DOES, not what it SAYS.</li><li><strong>Premise</strong>: Supports conclusion, not supported.</li><li><strong>Intermediate Conclusion</strong>: Supports conclusion, is supported.</li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>1</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Patterns & Flaws</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Method of Reasoning</h3>
+            <p class="v1-def">Describe the technique the author uses to argue their point.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the conclusion and premises.</li><li>2. Abstract the relationship between them.</li><li>3. Match the abstraction to the answer choices.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The argument proceeds by</li><li>Which one of the following most accurately describes the method of reasoning used in the argument?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Analogy Template</strong></li><li><strong>Elimination Template</strong></li><li><strong>Counterexample Template</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Parallel Reasoning</h3>
+            <p class="v1-def">Find an argument with the same logical structure as the stimulus.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Abstract the stimulus logic (e.g., A -> B).</li><li>2. Evaluate the conclusion's force (e.g., must, probably).</li><li>3. Match structure and force in the answers.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following arguments is most similar in its pattern of reasoning to the argument above?</li><li>The pattern of reasoning in which one of the following is most closely parallel to that in the argument above?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Conditional Logic Match</strong></li><li><strong>Quantifier Match (All, Most, Some)</strong></li><li><strong>Contrapositive Match</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Flaw</h3>
+            <p class="v1-def">Identify the logical error in the author's reasoning.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Find the conclusion and evidence.</li><li>2. Play Devil's Advocate: 'How could the evidence be true while the conclusion is still wrong?'</li><li>3. Describe the gap.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The reasoning in the argument is flawed in that the argument</li><li>Which one of the following most accurately describes a flaw in the argument's reasoning?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Correlation vs. Causation</strong></li><li><strong>Necessary vs. Sufficient</strong></li><li><strong>Ad Hominem</strong></li><li><strong>Part vs. Whole</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Parallel Flaw</h3>
+            <p class="v1-def">Find an argument that commits the exact same logical error.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the specific flaw in the stimulus.</li><li>2. Look for the same flaw category in the answers.</li><li>3. Verify the underlying structure matches.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following exhibits a flawed pattern of reasoning most similar to that in the argument above?</li><li>The flawed reasoning in the argument above is most closely paralleled by that in which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Matched Conditional Flaw</strong></li><li><strong>Matched Causal Flaw</strong></li><li><strong>Matched Equivocation</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>2</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Argument Impact & Assumptions</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Evaluate</h3>
+            <p class="v1-def">Identify the question whose answer would help determine the argument's validity.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the core argument.</li><li>2. Anticipate the missing information or gap.</li><li>3. Apply the Variance Test.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following would it be most helpful to know in order to evaluate the argument?</li><li>The answer to which one of the following questions is most relevant to evaluating the argument?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>The Variance Test</strong>: Apply extreme yes/no, high/low, present/absent answers to the choice.</li><li><strong>If differing answers make the argument respectively succeed and fail, it's the correct choice.</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Strengthen</h3>
+            <p class="v1-def">Find a new fact that makes the conclusion more likely to be true.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the core argument and its gap.</li><li>2. Prephrase a bridge for the gap.</li><li>3. Find the answer that provides that bridge or eliminates an alternate explanation.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following, if true, most strengthens the argument?</li><li>Which one of the following, if true, most strongly supports the conclusion above?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Bolster the Evidence</strong></li><li><strong>Eliminate Alternate Causes</strong></li><li><strong>Show Cause without Effect / Effect without Cause (for causal arguments)</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Weaken</h3>
+            <p class="v1-def">Find a new fact that makes the conclusion less likely to be true.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the core argument and its gap.</li><li>2. Prephrase an attack on the gap.</li><li>3. Find the answer that introduces an alternate explanation or attacks the assumption.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following, if true, most weakens the argument?</li><li>Which one of the following, if true, most seriously undermines the reasoning above?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Introduce Alternate Cause</strong></li><li><strong>Show Cause without Effect</strong></li><li><strong>Show Effect without Cause</strong></li><li><strong>Attack the Data/Sample</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Sufficient Assumption</h3>
+            <p class="v1-def">Find the missing premise that, if added, guarantees the conclusion is 100% true.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Map the formal logic of the premises and conclusion.</li><li>2. Look for New Terms or Dangling Terms.</li><li>3. Insert answer and rerun the chain to guarantee the conclusion.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The conclusion follows logically if which one of the following is assumed?</li><li>Which one of the following, if assumed, enables the argument's conclusion to be properly drawn?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Entry Gap</strong></li><li><strong>Middle Gap</strong></li><li><strong>End Gap</strong></li><li><strong>Connect the Dangling Terms</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>3</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Argument Impact & Assumptions</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Necessary Assumption</h3>
+            <p class="v1-def">Find the unstated premise that MUST be true for the argument to even have a chance of working.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the core argument.</li><li>2. Prephrase a necessary condition.</li><li>3. Apply the Negation Test.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following is an assumption on which the argument depends?</li><li>The argument assumes which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>The Negation Test</strong>: If the logical negation of the choice destroys the argument, it's correct.</li><li><strong>Shielding Assumption</strong>: Blocks a potential problem.</li><li><strong>Connecting Assumption</strong>: Bridges a gap.</li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>4</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Principles</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Principle Strengthen</h3>
+            <p class="v1-def">Find a general rule that helps justify the specific reasoning in the stimulus.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Summarize the specific situation in the stimulus.</li><li>2. Abstract it into an 'If [condition], then [judgment]' rule.</li><li>3. Match the rule to the answers.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following principles, if valid, most helps to justify the reasoning above?</li><li>The reasoning above most closely conforms to which one of the following principles?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Broad Rule Template</strong></li><li><strong>If Premise -> Then Conclusion</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Principle Generalize</h3>
+            <p class="v1-def">Extract a general rule or principle that is illustrated by the specific situation.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Understand the core dynamics of the scenario.</li><li>2. Abstract the scenario without losing key elements.</li><li>3. Find the choice that captures this abstraction.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following generalizations is most clearly illustrated by the situation described above?</li><li>The situation described above best illustrates which one of the following propositions?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Scenario Abstraction Template</strong></li><li><strong>Action/Consequence Template</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Principle Apply</h3>
+            <p class="v1-def">Take a general rule from the stimulus and apply it to a new specific situation in the answers.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Diagram the principle if conditional.</li><li>2. Convert rule to checklist.</li><li>3. Evaluate answers: one missed necessary condition can eliminate an answer.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following judgments conforms most closely to the principle cited above?</li><li>The principle above, if valid, most strongly supports which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Rule as Checklist Template</strong></li><li><strong>Sufficient Condition Trigger</strong></li><li><strong>Necessary Condition Failure</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>5</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Inference</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Most Strongly Supported</h3>
+            <p class="v1-def">Find the statement that is highly likely to be true based on the provided facts.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Read the facts (no argument to analyze).</li><li>2. Look for overlapping terms or combinations of facts.</li><li>3. Pick the safest, most provable answer.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following is most strongly supported by the information above?</li><li>The statements above, if true, most strongly support which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Fact Combination</strong></li><li><strong>Soft Language Preference (e.g., 'some', 'can')</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Fill in the Blank</h3>
+            <p class="v1-def">Complete the logical thought at the end of the stimulus.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the direction of the argument just before the blank.</li><li>2. Prephrase the logical conclusion.</li><li>3. Match the prephrase.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following most logically completes the argument?</li><li>The information above provides the most support for the conclusion that...</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Conclusion Synthesis</strong></li><li><strong>Contrast Continuation</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Must Be True</h3>
+            <p class="v1-def">Find the statement that is 100% guaranteed by the facts provided.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Diagram formal logic if present.</li><li>2. Combine facts rigorously.</li><li>3. Ask: 'Could this possibly be false?' If yes, eliminate.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>If the statements above are true, which one of the following must also be true?</li><li>Which one of the following can be properly inferred from the passage?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Formal Logic Chain</strong></li><li><strong>Contrapositive Check</strong></li><li><strong>Fact Combination Template</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Must Be False</h3>
+            <p class="v1-def">Find the statement that completely contradicts the provided facts.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Understand the exact parameters of the facts.</li><li>2. Apply the Coexistence Test.</li><li>3. If the answer can coexist with the facts, eliminate it.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>If the statements above are true, which one of the following must be false?</li><li>The information above, if true, most strongly supports the rejection of which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>The Coexistence Test</strong>: Can this be true at the same time as the stimulus?</li><li><strong>Direct Contradiction Template</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>6</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Paradox / Explain</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Paradox / Explain</h3>
+            <p class="v1-def">Find the fact that resolves the apparent contradiction between two statements.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify the two conflicting facts.</li><li>2. Preserve both facts as true.</li><li>3. Find the hidden distinction / bridge that allows both to exist.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>Which one of the following, if true, most helps to resolve the apparent discrepancy?</li><li>Which one of the following, if true, most helps to explain the paradoxical result?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>The Missing Context Template</strong></li><li><strong>Alternate Cause Explanation</strong></li><li><strong>Scope Shift Resolution</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>7</span>
+          </footer>
+        </section>
+
+        <section class="pdf-page">
+          <div class="pdf-page-content">
+            <p class="eyebrow">Level 4A — Template Library · Dense Reference</p>
+            <h2>Family: <em>Dialogue</em></h2>
+            <div class="gold-rule"></div>
+            <div class="v1-grid">
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Disagree</h3>
+            <p class="v1-def">Identify the precise point of contention between two speakers.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Identify speaker 1's conclusion.</li><li>2. Identify what speaker 2 specifically pushes back against.</li><li>3. Apply the Speaker-by-Speaker Commitment Test.</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The dialogue provides the most support for the claim that [A] and [B] disagree over whether</li><li>The point at issue between [A] and [B] is whether</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Speaker-by-Speaker Commitment Test</strong>: Speaker 1 must say YES, Speaker 2 must say NO (or vice versa).</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="v1-qt">
+            <h3 class="v1-type-title">Agree</h3>
+            <p class="v1-def">Identify a statement that both speakers would endorse.</p>
+            <div class="v1-cols">
+              <div class="v1-box">
+                <span class="v1-label">The Method</span>
+                <ul><li>1. Read both perspectives carefully.</li><li>2. Find the shared premise or unstated common ground.</li><li>3. Apply the Speaker-by-Speaker Commitment Test (Both must say YES).</li></ul>
+                <span class="v1-label" style="margin-top: 0.1in;">Stem</span>
+                <ul style="font-style:italic; color:var(--haze);"><li>The dialogue provides the most support for the claim that [A] and [B] agree that</li><li>The statements above provide the most support for the claim that both speakers would agree with which one of the following?</li></ul>
+              </div>
+              <div class="v1-box template-lib">
+                <span class="v1-label">Template Library</span>
+                <ul><li><strong>Shared Assumption Template</strong></li><li><strong>Common Ground Test</strong></li></ul>
+              </div>
+            </div>
+          </div>
+
+            </div>
+          </div>
+          <footer class="pdf-page-footer">
+            <span>Sunlit Botanical Editorial · Theme 03</span>
+            <span>8</span>
+          </footer>
+        </section>
+      </main></body></html>

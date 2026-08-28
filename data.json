@@ -1,0 +1,395 @@
+[
+  {
+    "family": "Structure",
+    "type": "Main Conclusion",
+    "definition": "Identify the primary claim the author is trying to prove.",
+    "stem_examples": [
+      "Which one of the following most accurately expresses the main conclusion of the argument?",
+      "The main point of the argument is that"
+    ],
+    "steps": [
+      "1. Find the conclusion and evidence.",
+      "2. Check for intermediate conclusions.",
+      "3. Use the Why Test to verify the main conclusion."
+    ],
+    "templates": [
+      "Support Chain: Evidence -> Intermediate Conclusion -> Main Conclusion",
+      "The Why Test: Does statement A support statement B, or vice versa?",
+      "Beware the Intermediate Conclusion Trap."
+    ]
+  },
+  {
+    "family": "Structure",
+    "type": "Argument Part",
+    "definition": "Describe the function of a specific statement within the argument.",
+    "stem_examples": [
+      "The statement that [X] plays which one of the following roles in the argument?",
+      "Which one of the following most accurately describes the role played by the claim that [X]?"
+    ],
+    "steps": [
+      "1. Identify the main conclusion.",
+      "2. Ask: 'Does the statement support something?'",
+      "3. Ask: 'Is the statement supported by something?'"
+    ],
+    "templates": [
+      "Content vs. Function: Focus on what the statement DOES, not what it SAYS.",
+      "Premise: Supports conclusion, not supported.",
+      "Intermediate Conclusion: Supports conclusion, is supported."
+    ]
+  },
+  {
+    "family": "Patterns & Flaws",
+    "type": "Method of Reasoning",
+    "definition": "Describe the technique the author uses to argue their point.",
+    "stem_examples": [
+      "The argument proceeds by",
+      "Which one of the following most accurately describes the method of reasoning used in the argument?"
+    ],
+    "steps": [
+      "1. Identify the conclusion and premises.",
+      "2. Abstract the relationship between them.",
+      "3. Match the abstraction to the answer choices."
+    ],
+    "templates": [
+      "Analogy Template",
+      "Elimination Template",
+      "Counterexample Template"
+    ]
+  },
+  {
+    "family": "Patterns & Flaws",
+    "type": "Parallel Reasoning",
+    "definition": "Find an argument with the same logical structure as the stimulus.",
+    "stem_examples": [
+      "Which one of the following arguments is most similar in its pattern of reasoning to the argument above?",
+      "The pattern of reasoning in which one of the following is most closely parallel to that in the argument above?"
+    ],
+    "steps": [
+      "1. Abstract the stimulus logic (e.g., A -> B).",
+      "2. Evaluate the conclusion's force (e.g., must, probably).",
+      "3. Match structure and force in the answers."
+    ],
+    "templates": [
+      "Conditional Logic Match",
+      "Quantifier Match (All, Most, Some)",
+      "Contrapositive Match"
+    ]
+  },
+  {
+    "family": "Patterns & Flaws",
+    "type": "Flaw",
+    "definition": "Identify the logical error in the author's reasoning.",
+    "stem_examples": [
+      "The reasoning in the argument is flawed in that the argument",
+      "Which one of the following most accurately describes a flaw in the argument's reasoning?"
+    ],
+    "steps": [
+      "1. Find the conclusion and evidence.",
+      "2. Play Devil's Advocate: 'How could the evidence be true while the conclusion is still wrong?'",
+      "3. Describe the gap."
+    ],
+    "templates": [
+      "Correlation vs. Causation",
+      "Necessary vs. Sufficient",
+      "Ad Hominem",
+      "Part vs. Whole"
+    ]
+  },
+  {
+    "family": "Patterns & Flaws",
+    "type": "Parallel Flaw",
+    "definition": "Find an argument that commits the exact same logical error.",
+    "stem_examples": [
+      "Which one of the following exhibits a flawed pattern of reasoning most similar to that in the argument above?",
+      "The flawed reasoning in the argument above is most closely paralleled by that in which one of the following?"
+    ],
+    "steps": [
+      "1. Identify the specific flaw in the stimulus.",
+      "2. Look for the same flaw category in the answers.",
+      "3. Verify the underlying structure matches."
+    ],
+    "templates": [
+      "Matched Conditional Flaw",
+      "Matched Causal Flaw",
+      "Matched Equivocation"
+    ]
+  },
+  {
+    "family": "Argument Impact & Assumptions",
+    "type": "Evaluate",
+    "definition": "Identify the question whose answer would help determine the argument's validity.",
+    "stem_examples": [
+      "Which one of the following would it be most helpful to know in order to evaluate the argument?",
+      "The answer to which one of the following questions is most relevant to evaluating the argument?"
+    ],
+    "steps": [
+      "1. Identify the core argument.",
+      "2. Anticipate the missing information or gap.",
+      "3. Apply the Variance Test."
+    ],
+    "templates": [
+      "The Variance Test: Apply extreme yes/no, high/low, present/absent answers to the choice.",
+      "If differing answers make the argument respectively succeed and fail, it's the correct choice."
+    ]
+  },
+  {
+    "family": "Argument Impact & Assumptions",
+    "type": "Strengthen",
+    "definition": "Find a new fact that makes the conclusion more likely to be true.",
+    "stem_examples": [
+      "Which one of the following, if true, most strengthens the argument?",
+      "Which one of the following, if true, most strongly supports the conclusion above?"
+    ],
+    "steps": [
+      "1. Identify the core argument and its gap.",
+      "2. Prephrase a bridge for the gap.",
+      "3. Find the answer that provides that bridge or eliminates an alternate explanation."
+    ],
+    "templates": [
+      "Bolster the Evidence",
+      "Eliminate Alternate Causes",
+      "Show Cause without Effect / Effect without Cause (for causal arguments)"
+    ]
+  },
+  {
+    "family": "Argument Impact & Assumptions",
+    "type": "Weaken",
+    "definition": "Find a new fact that makes the conclusion less likely to be true.",
+    "stem_examples": [
+      "Which one of the following, if true, most weakens the argument?",
+      "Which one of the following, if true, most seriously undermines the reasoning above?"
+    ],
+    "steps": [
+      "1. Identify the core argument and its gap.",
+      "2. Prephrase an attack on the gap.",
+      "3. Find the answer that introduces an alternate explanation or attacks the assumption."
+    ],
+    "templates": [
+      "Introduce Alternate Cause",
+      "Show Cause without Effect",
+      "Show Effect without Cause",
+      "Attack the Data/Sample"
+    ]
+  },
+  {
+    "family": "Argument Impact & Assumptions",
+    "type": "Sufficient Assumption",
+    "definition": "Find the missing premise that, if added, guarantees the conclusion is 100% true.",
+    "stem_examples": [
+      "The conclusion follows logically if which one of the following is assumed?",
+      "Which one of the following, if assumed, enables the argument's conclusion to be properly drawn?"
+    ],
+    "steps": [
+      "1. Map the formal logic of the premises and conclusion.",
+      "2. Look for New Terms or Dangling Terms.",
+      "3. Insert answer and rerun the chain to guarantee the conclusion."
+    ],
+    "templates": [
+      "Entry Gap",
+      "Middle Gap",
+      "End Gap",
+      "Connect the Dangling Terms"
+    ]
+  },
+  {
+    "family": "Argument Impact & Assumptions",
+    "type": "Necessary Assumption",
+    "definition": "Find the unstated premise that MUST be true for the argument to even have a chance of working.",
+    "stem_examples": [
+      "Which one of the following is an assumption on which the argument depends?",
+      "The argument assumes which one of the following?"
+    ],
+    "steps": [
+      "1. Identify the core argument.",
+      "2. Prephrase a necessary condition.",
+      "3. Apply the Negation Test."
+    ],
+    "templates": [
+      "The Negation Test: If the logical negation of the choice destroys the argument, it's correct.",
+      "Shielding Assumption: Blocks a potential problem.",
+      "Connecting Assumption: Bridges a gap."
+    ]
+  },
+  {
+    "family": "Principles",
+    "type": "Principle Strengthen",
+    "definition": "Find a general rule that helps justify the specific reasoning in the stimulus.",
+    "stem_examples": [
+      "Which one of the following principles, if valid, most helps to justify the reasoning above?",
+      "The reasoning above most closely conforms to which one of the following principles?"
+    ],
+    "steps": [
+      "1. Summarize the specific situation in the stimulus.",
+      "2. Abstract it into an 'If [condition], then [judgment]' rule.",
+      "3. Match the rule to the answers."
+    ],
+    "templates": [
+      "Broad Rule Template",
+      "If Premise -> Then Conclusion"
+    ]
+  },
+  {
+    "family": "Principles",
+    "type": "Principle Generalize",
+    "definition": "Extract a general rule or principle that is illustrated by the specific situation.",
+    "stem_examples": [
+      "Which one of the following generalizations is most clearly illustrated by the situation described above?",
+      "The situation described above best illustrates which one of the following propositions?"
+    ],
+    "steps": [
+      "1. Understand the core dynamics of the scenario.",
+      "2. Abstract the scenario without losing key elements.",
+      "3. Find the choice that captures this abstraction."
+    ],
+    "templates": [
+      "Scenario Abstraction Template",
+      "Action/Consequence Template"
+    ]
+  },
+  {
+    "family": "Principles",
+    "type": "Principle Apply",
+    "definition": "Take a general rule from the stimulus and apply it to a new specific situation in the answers.",
+    "stem_examples": [
+      "Which one of the following judgments conforms most closely to the principle cited above?",
+      "The principle above, if valid, most strongly supports which one of the following?"
+    ],
+    "steps": [
+      "1. Diagram the principle if conditional.",
+      "2. Convert rule to checklist.",
+      "3. Evaluate answers: one missed necessary condition can eliminate an answer."
+    ],
+    "templates": [
+      "Rule as Checklist Template",
+      "Sufficient Condition Trigger",
+      "Necessary Condition Failure"
+    ]
+  },
+  {
+    "family": "Inference",
+    "type": "Most Strongly Supported",
+    "definition": "Find the statement that is highly likely to be true based on the provided facts.",
+    "stem_examples": [
+      "Which one of the following is most strongly supported by the information above?",
+      "The statements above, if true, most strongly support which one of the following?"
+    ],
+    "steps": [
+      "1. Read the facts (no argument to analyze).",
+      "2. Look for overlapping terms or combinations of facts.",
+      "3. Pick the safest, most provable answer."
+    ],
+    "templates": [
+      "Fact Combination",
+      "Soft Language Preference (e.g., 'some', 'can')"
+    ]
+  },
+  {
+    "family": "Inference",
+    "type": "Fill in the Blank",
+    "definition": "Complete the logical thought at the end of the stimulus.",
+    "stem_examples": [
+      "Which one of the following most logically completes the argument?",
+      "The information above provides the most support for the conclusion that..."
+    ],
+    "steps": [
+      "1. Identify the direction of the argument just before the blank.",
+      "2. Prephrase the logical conclusion.",
+      "3. Match the prephrase."
+    ],
+    "templates": [
+      "Conclusion Synthesis",
+      "Contrast Continuation"
+    ]
+  },
+  {
+    "family": "Inference",
+    "type": "Must Be True",
+    "definition": "Find the statement that is 100% guaranteed by the facts provided.",
+    "stem_examples": [
+      "If the statements above are true, which one of the following must also be true?",
+      "Which one of the following can be properly inferred from the passage?"
+    ],
+    "steps": [
+      "1. Diagram formal logic if present.",
+      "2. Combine facts rigorously.",
+      "3. Ask: 'Could this possibly be false?' If yes, eliminate."
+    ],
+    "templates": [
+      "Formal Logic Chain",
+      "Contrapositive Check",
+      "Fact Combination Template"
+    ]
+  },
+  {
+    "family": "Inference",
+    "type": "Must Be False",
+    "definition": "Find the statement that completely contradicts the provided facts.",
+    "stem_examples": [
+      "If the statements above are true, which one of the following must be false?",
+      "The information above, if true, most strongly supports the rejection of which one of the following?"
+    ],
+    "steps": [
+      "1. Understand the exact parameters of the facts.",
+      "2. Apply the Coexistence Test.",
+      "3. If the answer can coexist with the facts, eliminate it."
+    ],
+    "templates": [
+      "The Coexistence Test: Can this be true at the same time as the stimulus?",
+      "Direct Contradiction Template"
+    ]
+  },
+  {
+    "family": "Paradox / Explain",
+    "type": "Paradox / Explain",
+    "definition": "Find the fact that resolves the apparent contradiction between two statements.",
+    "stem_examples": [
+      "Which one of the following, if true, most helps to resolve the apparent discrepancy?",
+      "Which one of the following, if true, most helps to explain the paradoxical result?"
+    ],
+    "steps": [
+      "1. Identify the two conflicting facts.",
+      "2. Preserve both facts as true.",
+      "3. Find the hidden distinction / bridge that allows both to exist."
+    ],
+    "templates": [
+      "The Missing Context Template",
+      "Alternate Cause Explanation",
+      "Scope Shift Resolution"
+    ]
+  },
+  {
+    "family": "Dialogue",
+    "type": "Disagree",
+    "definition": "Identify the precise point of contention between two speakers.",
+    "stem_examples": [
+      "The dialogue provides the most support for the claim that [A] and [B] disagree over whether",
+      "The point at issue between [A] and [B] is whether"
+    ],
+    "steps": [
+      "1. Identify speaker 1's conclusion.",
+      "2. Identify what speaker 2 specifically pushes back against.",
+      "3. Apply the Speaker-by-Speaker Commitment Test."
+    ],
+    "templates": [
+      "Speaker-by-Speaker Commitment Test: Speaker 1 must say YES, Speaker 2 must say NO (or vice versa)."
+    ]
+  },
+  {
+    "family": "Dialogue",
+    "type": "Agree",
+    "definition": "Identify a statement that both speakers would endorse.",
+    "stem_examples": [
+      "The dialogue provides the most support for the claim that [A] and [B] agree that",
+      "The statements above provide the most support for the claim that both speakers would agree with which one of the following?"
+    ],
+    "steps": [
+      "1. Read both perspectives carefully.",
+      "2. Find the shared premise or unstated common ground.",
+      "3. Apply the Speaker-by-Speaker Commitment Test (Both must say YES)."
+    ],
+    "templates": [
+      "Shared Assumption Template",
+      "Common Ground Test"
+    ]
+  }
+]
