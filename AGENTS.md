@@ -1,3 +1,0 @@
-# AGENTS
-
-No agents assigned.
